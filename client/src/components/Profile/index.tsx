@@ -41,9 +41,9 @@ const Profile: React.FC = () => {
   useEffect(() => {
     if (user) {
       setFormData({
-        firstName: user.firstName || '',
-        lastName: user.lastName || '',
-        age: user.age?.toString() || '',
+        firstName: user?.firstName || '',
+        lastName: user?.lastName || '',
+        age: user?.age?.toString() || '',
       });
     }
   }, [user]);
@@ -92,7 +92,7 @@ const Profile: React.FC = () => {
   };
 
   useEffect(() => {
-    !!user && navigate('/');
+
   }, [user]);
 
   return (
@@ -100,7 +100,7 @@ const Profile: React.FC = () => {
       <Title>Профиль</Title>
       <ProfileCard>
         <Section>
-          <Avatar src={user?.avatar ? `http://localhost:3001${user.avatar}` : ''} />
+          <Avatar src={user?.avatar ? `http://localhost:3001${user?.avatar}` : ''} />
           <AvatarUpload>
             <Input
               type="file"
@@ -118,14 +118,14 @@ const Profile: React.FC = () => {
             <Field>
               <Label>Логин:</Label>
               {isEditing ? (
-                <Value>{user.username}</Value>
+                <Value>{user?.username}</Value>
               ) : (
-                <Value>{user.username}</Value>
+                <Value>{user?.username}</Value>
               )}
             </Field>
             <Field>
               <Label>Email:</Label>
-              <Value>{user.email}</Value>
+              <Value>{user?.email}</Value>
             </Field>
             <Field>
               <Label>Фамилия:</Label>
@@ -138,7 +138,7 @@ const Profile: React.FC = () => {
                   }
                 />
               ) : (
-                <Value>{user.firstName || 'Нету'}</Value>
+                <Value>{user?.firstName || 'Нету'}</Value>
               )}
             </Field>
             <Field>
@@ -152,7 +152,7 @@ const Profile: React.FC = () => {
                   }
                 />
               ) : (
-                <Value>{user.lastName || 'Нету'}</Value>
+                <Value>{user?.lastName || 'Нету'}</Value>
               )}
             </Field>
             <Field>
@@ -166,7 +166,7 @@ const Profile: React.FC = () => {
                   }
                 />
               ) : (
-                <Value>{user.age || 'Нету'}</Value>
+                <Value>{user?.age || 'Нету'}</Value>
               )}
             </Field>
           </Info>

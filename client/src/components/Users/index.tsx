@@ -64,20 +64,20 @@ const UserList: React.FC = () => {
         </thead>
         <tbody>
           {users.map((user) => (
-            <TableRow key={user._id}>
+            <TableRow key={user?._id}>
               <TableCell>
                 <Avatar
-                  src={user.avatar ? `http://localhost:3001${user.avatar}` : ''}
+                  src={user?.avatar ? `http://localhost:3001${user?.avatar}` : ''}
                 />
               </TableCell>
-              <TableCell>{user.username}</TableCell>
-              <TableCell>{user.email}</TableCell>
+              <TableCell>{user?.username}</TableCell>
+              <TableCell>{user?.email}</TableCell>
               <TableCell>
-                {user.firstName || user.lastName
-                  ? `${user.firstName || ''} ${user.lastName || ''}`.trim()
+                {user?.firstName || user?.lastName
+                  ? `${user?.firstName || ''} ${user?.lastName || ''}`.trim()
                   : 'Нет имени'}
               </TableCell>
-              <TableCell>{user.age || 'Возраст неизвестен'}</TableCell>
+              <TableCell>{user?.age || 'Возраст неизвестен'}</TableCell>
             </TableRow>
           ))}
         </tbody>

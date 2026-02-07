@@ -41,7 +41,7 @@ const RegisterForm: React.FC = () => {
   };
 
   useEffect(() => {
-    !!user && navigate('/profile');
+
   }, [user]);
 
   return (
